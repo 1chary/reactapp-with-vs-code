@@ -1,0 +1,18 @@
+.container {
+    background-image: url("https://res.cloudinary.com/dowjvitxs/image/upload/v1671645894/samples/landscapes/nature-mountains.jpg");
+    height: 100vh;
+    text-align: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .headingOfTheWelcomePage {
+    color: white;
+    margin-bottom: 10px;
+  }
+  .para {
+    color: white;
+  }
