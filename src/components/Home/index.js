@@ -1,27 +1,32 @@
-import {useEffect} from "react"
-import { FaHome } from "react-icons/fa";
-import "./index.css"
-
+import { useState } from "react"
 
 
 const Home = () => {
-  
-  useEffect(() => {
-    const fetchAllTheMovies = async () => {
-      const response = await fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=3ebbee02535b2c5e2a5646788e3b6384&language=en-US&page=1');
-      const data = await response.json()
-      console.log(data)
-    }
-    
-    fetchAllTheMovies()
-  })
+    const [username,setUsername] = useState("")
+    const [password,setPassword] = useState("")
 
-  return (
-    <div>
-      <FaHome />
-      <h1>Hi</h1>
-    </div>
-  )
-}
+    const submitDetails = async (event) => {
+        event.preventDefault()
+        const userDetails = {username,password}
+        console.log(username)
+        console.log(password)
+        const api = "https://my-node-file.onrender.com/login"
+        const options = {
+            body: JSON.stringify(userDetails),
+            method: 'POST',
+        }
+        const response = await fetch(api,options)
+        const data = await response.json()
+        console.log(data)
+    }
+
+    return (
+        <form onSubmit={submitDetails}>
+            <input type = "text" placeholder="enter your username" onChange={(event) => setUsername(event.target.value)} value = {username}/>
+            <input type = "password" placeholder="enter your password" onChange={(event) => setPassword(event.target.value)} value = {password} />
+            <button type = "submit">submit</button>
+        </form>
+    )
+}   
 
 export default Home

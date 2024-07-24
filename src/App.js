@@ -1,13 +1,17 @@
-import './App.css';
-import {Routes,Route} from "react-router-dom"
+import { Component } from "react"
+import "./App.css"
+
+import { Route,Routes } from "react-router-dom"
 import Home from "./components/Home"
 
-const App = () => (
- 
+class App extends Component {
+  render() {
+    return (
       <Routes>
-        <Route exact path = "/" element = {<Home/>}/>
+        <Route path = '/' element = {< Home />}/>
       </Routes>
-   
-)
+    )
+  }
+}
 
 export default App
