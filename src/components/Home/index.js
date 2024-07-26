@@ -8,12 +8,14 @@ const Home = () => {
     const submitDetails = async (event) => {
         event.preventDefault()
         const userDetails = {username,password}
-        console.log(username)
-        console.log(password)
         const api = "https://my-node-file.onrender.com/login"
         const options = {
-            body: JSON.stringify(userDetails),
             method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(userDetails),
+            
         }
         const response = await fetch(api,options)
         const data = await response.json()
